@@ -29,6 +29,8 @@ _
 CLI front-end for various backends mentioned in this list.
 
 _
+            bench_code_template => 'die "NOT YET IMPLEMENTED"',
+            bench_include_by_default => 0,
         },
         {
             module => 'Lingua::JA::Fold',
@@ -43,6 +45,8 @@ _
                 can_cjk => 1,
                 can_ansi => 0,
             },
+            bench_code_template => 'die "NOT YET IMPLEMENTED"',
+            bench_include_by_default => 0,
         },
         {
             module => 'Text::ANSI::Fold',
@@ -55,6 +59,8 @@ _
                 can_cjk => 1,
                 can_ansi => 1,
             },
+            bench_code_template => 'die "NOT YET IMPLEMENTED"',
+            bench_include_by_default => 0,
         },
         {
             module => 'Text::ANSI::Util',
@@ -69,6 +75,7 @@ _
                 can_cjk => 0,
                 can_ansi => 1,
             },
+            bench_fcall_template => 'Text::ANSI::Util::ta_wrap(<str>, <width>)',
         },
         {
             module => 'Text::ANSI::WideUtil',
@@ -84,6 +91,7 @@ _
                 can_cjk => 0,
                 can_ansi => 1,
             },
+            bench_fcall_template => 'Text::ANSI::WideUtil::ta_mbwrap(<str>, <width>)',
         },
         {
             module => 'Text::WideChar::Util',
@@ -98,6 +106,7 @@ _
                 can_cjk => 0,
                 can_ansi => 0,
             },
+            bench_fcall_template => 'Text::WideChar::Util::mbwrap(<str>, <width>)',
         },
         {
             module => 'Text::Fold',
@@ -110,6 +119,8 @@ _
                 can_cjk => 0,
                 can_ansi => 0,
             },
+            bench_code_template => 'die "NOT YET IMPLEMENTED"',
+            bench_include_by_default => 0,
         },
         {
             module => 'Text::LineFold',
@@ -122,6 +133,8 @@ _
                 can_cjk => 0,
                 can_ansi => 0,
             },
+            bench_code_template => 'die "NOT YET IMPLEMENTED"',
+            bench_include_by_default => 0,
         },
         {
             module => 'Text::Wrap',
@@ -135,7 +148,12 @@ _
                 can_cjk => 0,
                 can_ansi => 0,
             },
+            bench_code_template => 'local $Text::Wrap::columns = <width>; Text::Wrap::wrap("", "", <str>)',
         },
+    ],
+
+    bench_datasets => [
+        {name=>"len200", args=>{str=>"xxxxxxxxx " x 20, width=>80}},
     ],
 };
 
