@@ -45,8 +45,7 @@ _
                 can_cjk => 1,
                 can_ansi => 0,
             },
-            bench_code_template => 'die "NOT YET IMPLEMENTED"',
-            bench_include_by_default => 0,
+            include_by_default => 0,
         },
         {
             module => 'Text::ANSI::Fold',
@@ -138,6 +137,7 @@ _
         },
         {
             module => 'Text::Wrap',
+            function => 'wrap',
             description => <<'_',
 
 Core module.
@@ -153,7 +153,7 @@ _
     ],
 
     bench_datasets => [
-        {name=>"len200", args=>{str=>"xxxxxxxxx " x 20, width=>80}},
+        {name=>"ansi_len200", args=>{str=>"xxxxxxxxx " x 20, width=>80}},
     ],
 };
 
